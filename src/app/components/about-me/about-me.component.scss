@@ -1,0 +1,75 @@
+.wrapper {
+  margin: 20px;
+}
+
+.intro {
+  height: 90vh;
+  margin-bottom: 10px;
+}
+
+.intro:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  float: left;
+  width: calc(60vw - 40px);
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.right {
+  float: right;
+  width: calc(40vw - 40px);
+  padding: 10px;
+}
+
+img {
+  height: calc(60vh - 20px);
+}
+.info {
+  background-color: grey;
+  height: calc(60vh - 20px);
+  display: flex;
+}
+
+.column {
+  height: inherit;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > .text {
+    text-align: center;
+  }
+  padding: 0 50px;
+}
+
+.first {
+  border-radius: 50%;
+  > img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+}
+
+.second {
+  background: url(../../../assets/images/subway.png) 50% 50% no-repeat; /* 50% 50% centers image in div */
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.third {
+  background: url(../../../assets/images/pp.png) 35% 25% no-repeat; /* 50% 50% centers image in div */
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
