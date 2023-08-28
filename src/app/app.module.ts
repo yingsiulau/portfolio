@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
-import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, NgxTypedJsModule, CarouselModule],
+  imports: [BrowserModule, AppRoutingModule, NgxTypedJsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
