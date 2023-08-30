@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public showName = false;
-  constructor(public router: Router) {}
-
-  ngOnInit(): void {
-    if (this.router.url === '/about-me') {
-      this.showName = false;
-    } else {
-      true;
-    }
+  constructor(public router: Router) {
+    this.router.events.subscribe(() => {
+      if (this.router.url.toString() === '/') {
+        this.showName = false;
+      } else {
+        this.showName = true;
+      }
+    });
   }
+
+  ngOnInit(): void {}
 }

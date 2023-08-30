@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <ngb-carousel class="left" (slide)="onSlide($event)">
+    <ng-template ngbSlide id="1">
+      <div class="img-wrapper">
+        <img
+          src="../../../assets/images/yingsiu.jpeg"
+          alt="Random first slide"
+        />
+      </div>
+      <div class="carousel-caption">
+        <h3>Ansicht für die Pflegefachpersonen</h3>
+        <p>Angular - Ionic</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="2">
+      <div class="img-wrapper">
+        <img
+          src="../../../assets/images/chrigu.png"
+          alt="Random second slide"
+        />
+      </div>
+      <div class="carousel-caption">
+        <h3>Ansicht für die Stationsleitung</h3>
+        <p>Angular</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="3">
+      <div class="img-wrapper">
+        <img src="../../../assets/images/chrigu.png" alt="Random third slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3>IPSP Webapp</h3>
+        <p>Angular</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <div class="right"><p [innerHTML]="displayText(slideNumber)"></p></div>
+</div>

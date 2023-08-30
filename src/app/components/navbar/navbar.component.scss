@@ -3,16 +3,17 @@
   color: white;
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   height: 80px;
 }
 
 .left {
-  width: 10%;
+  width: auto;
   margin-left: 50px;
 }
 
 .right {
-  width: 90%;
+  width: 80%;
   margin-right: 50px;
   > div {
     float: right;

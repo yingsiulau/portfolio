@@ -1,0 +1,20 @@
+.wrapper {
+  margin-top: 5vh;
+  display: flex;
+}
+
+.left {
+  width: 60vw;
+  margin: 0 5vw;
+}
+
+.right {
+  width: 30vw;
+  margin-right: 5vw;
+  background-color: green;
+}
+
+img {
+  width: 60vw;
+  height: 500px;
+}
