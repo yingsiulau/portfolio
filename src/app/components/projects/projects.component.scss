@@ -1,6 +1,8 @@
 .wrapper {
-  margin-top: 5vh;
+  height: calc(100vh - 80px);
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left {
@@ -11,10 +13,16 @@
 .right {
   width: 30vw;
   margin-right: 5vw;
-  background-color: green;
+  background-color: rgba(0, 0, 0, 0.222);
 }
 
 img {
   width: 60vw;
-  height: 500px;
+  height: calc(100vh - 10vh - 80px);
+  max-height: 550px;
+}
+
+mark {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.222);
 }
