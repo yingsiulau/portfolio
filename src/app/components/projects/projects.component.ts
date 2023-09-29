@@ -9,7 +9,7 @@ import { NgbCarouselConfig, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 export class ProjectsComponent {
   slideNumber: number = 1;
 
-  constructor(private config: NgbCarouselConfig) {}
+  constructor() {}
 
   public onSlide(slideEvent: NgbSlideEvent) {
     this.slideNumber = +slideEvent.current;

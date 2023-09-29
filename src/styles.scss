@@ -10,5 +10,14 @@ body {
   src: url(assets/font/Karla-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: "young";
+  src: url(assets/font/YoungSerif-Regular.ttf);
+}
+
+
+
+
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

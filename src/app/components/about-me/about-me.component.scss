@@ -1,5 +1,14 @@
 .wrapper {
-  margin: 20px;
+  margin: 50px;
+}
+
+h1,
+h2 {
+  font-family: "young";
+}
+
+.typing {
+  font-style: italic;
 }
 
 .intro {
@@ -18,59 +27,55 @@
   display: flex;
   align-items: center;
   float: left;
-  width: calc(60vw - 40px);
+  width: calc(60vw - 100px);
   h1 {
     font-size: 50px;
   }
 }
 
-.right {
-  float: right;
-  width: calc(40vw - 40px);
-  padding: 10px;
-}
-
 img {
-  height: calc(40vh - 20px);
+  height: calc(40vh - 50px);
 }
 
 .info {
-  background-color: grey;
-  height: calc(60vh - 20px);
-  display: flex;
+  height: auto;
+}
+
+.text {
+  padding: 10px;
 }
 
 .column {
-  height: inherit;
-  width: 33%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  > .text {
-    text-align: center;
-  }
-  padding: 0 50px;
+  margin: 50px 0;
 }
 
-.first {
-  border-radius: 50%;
-  > img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+.hobbies {
+  margin-top: 100px;
+  > ul {
+    font-size: 20px;
   }
 }
 
-.second {
-  background: url(../../../assets/images/subway.png) 50% 50% no-repeat; /* 50% 50% centers image in div */
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
+.gallery {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  > * {
+    padding: 10px;
+    height: 300px;
+  }
+  flex-wrap: wrap;
 }
 
-.third {
-  background: url(../../../assets/images/pp.png) 35% 25% no-repeat; /* 50% 50% centers image in div */
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
+@media (max-width: 480px) {
+  .gallery {
+    > * {
+      max-width: 350px;
+    }
+  }
+
+  .column {
+    flex-wrap: wrap;
+  }
 }
