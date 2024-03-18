@@ -1,10 +1,24 @@
 <div class="wrapper">
-  Enter this password to reveil my infodata
-  <div style="font-weight: bold">
-    {{ this.password }}
+  {{ this.displayInfo }}
+  <div *ngIf="!this.displayInfo">
+    Enter this password to reveil my informations
+    <div style="font-weight: bold">
+      {{ this.password }}
+    </div>
+
+    <div>
+      <label for="password">Password: </label>
+      <input id="password" type="text" [(ngModel)]="insertedPassword" />
+    </div>
+
+    <div>
+      <button type="button" (click)="checkPassword()">Update Password</button>
+    </div>
   </div>
 
-  <input [(ngModel)]="this.insertedPassword" />
+  <div *ngIf="displayWrong && !this.displayInfo">Falsches Passwort</div>
 
-  <div *ngIf="this.displayInfo">infos</div>
+  <div *ngIf="this.displayInfo">
+    <div>yingsiulau&#64;gmail.com</div>
+  </div>
 </div>
