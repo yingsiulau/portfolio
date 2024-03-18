@@ -1,0 +1,10 @@
+<div class="wrapper">
+  Enter this password to reveil my infodata
+  <div style="font-weight: bold">
+    {{ this.password }}
+  </div>
+
+  <input [(ngModel)]="this.insertedPassword" />
+
+  <div *ngIf="this.displayInfo">infos</div>
+</div>

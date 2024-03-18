@@ -2,7 +2,6 @@
 
 body {
   margin: 0px;
-  font-family: "karla";
 }
 
 @font-face {
@@ -15,9 +14,15 @@ body {
   src: url(assets/font/YoungSerif-Regular.ttf);
 }
 
+@font-face {
+  font-family: "bodini";
+  src: url(assets/font/Bodoni_Moda/static/BodoniModa_18pt-Regular.ttf);
+}
 
-
-
+@font-face {
+  font-family: "ransom";
+  src: url(assets/font/ransom/ransom.ttf);
+}
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";

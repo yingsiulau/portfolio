@@ -4,7 +4,11 @@
 
 h1,
 h2 {
-  font-family: "young";
+  font-family: "bodini";
+}
+
+img {
+  height: calc(50vh);
 }
 
 .typing {
@@ -12,8 +16,10 @@ h2 {
 }
 
 .intro {
-  height: 90vh;
+  height: 60vh;
   margin-bottom: 10px;
+  display: flex;
+  margin-bottom: 40vh;
 }
 
 .intro:after {
@@ -23,26 +29,44 @@ h2 {
 }
 
 .left {
-  height: 60vh;
+  margin: auto;
+  width: 50vw;
+  text-align: right;
+}
+
+.right {
+  margin: auto;
+  padding-left: 10vw;
+  width: 40vw;
+  height: 40vh;
   display: flex;
   align-items: center;
   float: left;
-  width: calc(60vw - 100px);
   h1 {
-    font-size: 50px;
+    font-size: 39pt;
+    font-weight: bold;
+    background-color: white;
+  }
+
+  img {
+    filter: contrast(1.1);
+    border-radius: 50%;
   }
 }
 
-img {
-  height: calc(40vh - 50px);
-}
-
 .info {
-  height: auto;
+  img {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .text {
   padding: 10px;
+  height: auto;
+  margin: auto;
+  text-align: justify;
 }
 
 .column {
@@ -77,5 +101,11 @@ img {
 
   .column {
     flex-wrap: wrap;
+  }
+
+  .right {
+    img {
+      border-radius: 0;
+    }
   }
 }

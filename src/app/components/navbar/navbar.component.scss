@@ -1,20 +1,22 @@
 .navbar {
-  background-color: rgb(46, 46, 46);
-  color: white;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  height: 80px;
-  font-family: "young";
+  height: 100px;
+  font-family: "bodini";
 }
 
 .left {
   width: auto;
   margin-left: 50px;
+  h3 {
+    margin: 0;
+  }
 }
 
 .right {
-  width: 80%;
+  cursor: pointer;
+  width: 50%;
   margin-right: 50px;
   > div {
     float: right;
