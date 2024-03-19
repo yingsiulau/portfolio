@@ -9,8 +9,11 @@ export class AppComponent {
   title = 'Yingsiu Lau';
 
   constructor() {
-    if (localStorage.getItem('pwRight') !== 'true') {
-      localStorage.setItem('pwRight', '');
+    if (localStorage.getItem('pwRight') !== '1337') {
+      localStorage.setItem(
+        'pwRight',
+        'changing this value to true doesnt make it work'
+      );
     }
   }
 }

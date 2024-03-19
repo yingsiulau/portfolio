@@ -14,7 +14,10 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.generatePassword();
-    this.displayInfo = Boolean(localStorage.getItem('pwRight'));
+
+    if (localStorage.getItem('pwRight') === '1337') {
+      this.displayInfo = true;
+    }
   }
 
   private generatePassword() {
@@ -24,7 +27,7 @@ export class ContactComponent implements OnInit {
   public checkPassword() {
     if (this.insertedPassword === this.password) {
       this.displayInfo = true;
-      localStorage.setItem('pwRight', 'true');
+      localStorage.setItem('pwRight', '1337');
     } else {
       this.displayWrong = true;
     }
