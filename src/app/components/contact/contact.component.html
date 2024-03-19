@@ -1,29 +1,52 @@
 <div class="wrapper">
   <div *ngIf="!this.displayInfo">
-    Enter this password to reveil my informations
-    <div style="font-weight: bold">
-      {{ this.password }}
-    </div>
+    <div class="pwWrapper">
+      <div>
+        <div class="item">Enter this password to reveal my contact informations</div>
+        <div class="item" style="font-weight: bold">
+          {{ this.password }}
+        </div>
+        
+        <div class="item">
+          <label for="password">Password: </label>
+          <br>
+          <input id="password" type="text" [(ngModel)]="insertedPassword" />
+        </div>
 
-    <div>
-      <label for="password">Password: </label>
-      <input id="password" type="text" [(ngModel)]="insertedPassword" />
-    </div>
-
-    <div>
-      <button type="button" (click)="checkPassword()">Update Password</button>
+        <div class="item">
+          <button type="button" (click)="checkPassword()">
+            Update Password
+          </button>
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ wrong: !displayWrong && !this.displayInfo }"
+        >
+          Falsches Passwort
+        </div>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="displayWrong && !this.displayInfo">Falsches Passwort</div>
-
   <div *ngIf="this.displayInfo">
-    <div>yingsiulau&#64;gmail.com</div>
-    <div>0763133788</div>
-    <embed
-      src="/src/assets/docs/2023_Yingsiu_Lebenslauf.pdf"
-      width="800px"
-      height="2100px"
-    />
+    <div class="column">
+      <div class="left">
+        <div>
+          <a
+            href="https://www.linkedin.com/in/yingsiu-lau-0723301b7/"
+            target="_blank"
+            >linkedin</a
+          >
+        </div>
+        <div>
+          <a href="../../../assets/docs/2023_Yingsiu_Lebenslauf.pdf">
+            Lebenslauf herunterladen
+          </a>
+        </div>
+      </div>
+      <div class="right">
+        <pdf-viewer [src]="pdfSource"></pdf-viewer>
+      </div>
+    </div>
   </div>
 </div>

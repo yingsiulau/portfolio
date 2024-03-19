@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit {
   public displayInfo: boolean = false;
   public insertedPassword = '';
   public displayWrong: boolean = false;
+  public pdfSource: string = 'assets/docs/2023_Yingsiu_Lebenslauf.pdf'
 
   ngOnInit(): void {
     this.generatePassword();

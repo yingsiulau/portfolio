@@ -3,7 +3,7 @@
   align-items: center;
   flex-wrap: nowrap;
   height: 100px;
-  font-family: "bodini";
+  font-family: "akira";
 }
 
 .left {
@@ -20,6 +20,6 @@
   margin-right: 50px;
   > div {
     float: right;
-    margin: 10px;
+    padding: 10px;
   }
 }

@@ -15,6 +15,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ContactComponent } from './components/contact/contact.component';
     NgxTypedJsModule,
     NgbModule,
     NgbCarouselModule,
+    PdfViewerModule
   ],
   providers: [NgbCarouselConfig],
   bootstrap: [AppComponent],

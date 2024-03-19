@@ -4,7 +4,7 @@
 
 h1,
 h2 {
-  font-family: "bodini";
+  font-family: "akira";
 }
 
 img {
@@ -12,7 +12,8 @@ img {
 }
 
 .typing {
-  font-style: italic;
+  color: rgb(220, 17, 17);
+  padding-right: 10px;
 }
 
 .intro {
@@ -63,7 +64,7 @@ img {
 }
 
 .text {
-  padding: 10px;
+  padding: 10px 30px;
   height: auto;
   margin: auto;
   text-align: justify;
@@ -90,6 +91,13 @@ img {
     height: 300px;
   }
   flex-wrap: wrap;
+}
+
+.imageColumn {
+  > * {
+    padding: 10px;
+    height: 300px;
+  }
 }
 
 @media (max-width: 480px) {

@@ -24,5 +24,10 @@ body {
   src: url(assets/font/ransom/ransom.ttf);
 }
 
+@font-face {
+  font-family: "akira";
+  src: url(assets/font/akira/Akira.otf);
+}
+
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
