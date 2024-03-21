@@ -15,11 +15,14 @@
 }
 
 .right {
-  cursor: pointer;
   width: 50%;
   margin-right: 50px;
   > div {
     float: right;
     padding: 10px;
   }
+}
+
+.link {
+  cursor: pointer;
 }

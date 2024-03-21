@@ -1,12 +1,16 @@
 <div class="wrapper">
   <div class="navbar">
     <div class="left">
-      <ng-container *ngIf="showName"> <h3>Yingsiu Lau</h3> </ng-container>
+      <ng-container *ngIf="showName">
+        <div class="link" routerLink="/contact">
+          <h3>Yingsiu Lau</h3>
+        </div>
+      </ng-container>
     </div>
     <div class="right">
-      <div routerLink="/contact">Contact</div>
-      <div routerLink="/projects">Projects</div>
-      <div routerLink="/">About Me</div>
+      <div class="link" routerLink="/contact">Contact</div>
+      <div class="link" routerLink="/projects">Projects</div>
+      <div class="link" routerLink="/">About Me</div>
     </div>
   </div>
   <div>
