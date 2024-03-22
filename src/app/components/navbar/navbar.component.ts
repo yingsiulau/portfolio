@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
   public showName = false;
   constructor(public router: Router) {
     this.router.events.subscribe(() => {
-      if (this.router.url.toString() === '/') {
+      if (this.router.url.toString() === '/aboutme') {
         this.showName = false;
       } else {
         this.showName = true;
