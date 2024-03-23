@@ -8,7 +8,7 @@ h2 {
 }
 
 img {
-  height: calc(50vh);
+  max-height: calc(50vh);
 }
 
 .typing {
@@ -72,6 +72,11 @@ img {
 .column {
   display: flex;
   margin: 50px 0;
+}
+
+.reversed {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .hobbies {

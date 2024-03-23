@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { DataService } from './service/data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Yingsiu Lau';
 
-  constructor() {
+  constructor(public dataService: DataService) {
+    this.getScreenSize(0);
+  }
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(_event: any) {
+    this.dataService.windowHeight.next(window.innerHeight);
+    this.dataService.windowHeight.next(window.innerWidth);
+
     if (localStorage.getItem('pwRight') !== '1337') {
       localStorage.setItem(
         'pwRight',
-        'changing this value to true doesnt make it work'
+        'Changing this value to true doesn\x27t make the magic happen'
       );
     }
   }

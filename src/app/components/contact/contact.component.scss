@@ -10,6 +10,8 @@ pdf-viewer {
 .column {
   display: flex;
 }
+
+
 .left {
   width: 20vw;
 }
@@ -33,7 +35,7 @@ pdf-viewer {
 button {
   appearance: none;
   border: 0.2em solid black;
-  background: hsl(0 0 0/0);
+  background: white;
   padding: 0.85em 1.5em;
   color: black;
   border-radius: 2em;
@@ -43,7 +45,7 @@ input[type="text"] {
   border: none;
   outline: none;
   border-bottom: 0.2em solid black;
-  background: rgba(black, 0.2);
+  background: rgba(black, 0.1);
   padding: 0.4em;
   color: black;
 }

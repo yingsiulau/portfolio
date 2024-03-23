@@ -5,6 +5,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/aboutme', pathMatch: 'full' },
   {
     path: 'aboutme',
     component: AboutMeComponent,
@@ -18,7 +19,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'error',
+    redirectTo: '/aboutme',
   },
 ];
 
