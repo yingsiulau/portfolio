@@ -6,7 +6,7 @@
 }
 
 .left {
-  width: 60vw;
+  width: 50vw;
   margin: 0 5vw;
 }
 
@@ -17,12 +17,62 @@
 }
 
 img {
-  width: 60vw;
+  width: 50vw;
   height: calc(100vh - 10vh - 80px);
   max-height: 550px;
+  object-fit: cover;
 }
 
 mark {
   color: white;
   background-color: rgba(0, 0, 0, 0.222);
+}
+
+@media (max-width: 750px) {
+  .wrapper {
+    height: calc(100vh - 100px);
+    display: block;
+  }
+
+  .left {
+    width: 90vw;
+  }
+
+  .right {
+    width: 90vw;
+    margin: 5vw;
+    background-color: rgba(0, 0, 0, 0.222);
+  }
+
+  img {
+    object-fit: cover;
+
+    width: 90vw;
+    height: calc(100vh - 10vh - 80px);
+    max-height: 550px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .wrapper {
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left {
+    width: 40vw;
+  }
+
+  .right {
+    width: 30vw;
+    background-color: rgba(0, 0, 0, 0.222);
+  }
+
+  img {
+    width: 40vw;
+    max-height: 650px;
+    object-fit: cover;
+  }
 }

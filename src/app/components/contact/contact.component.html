@@ -2,14 +2,16 @@
   <div *ngIf="!this.displayInfo">
     <div class="pwWrapper">
       <div>
-        <div class="item">Enter this password to reveal my contact informations</div>
+        <div class="item">
+          Enter this password to reveal my contact informations
+        </div>
         <div class="item" style="font-weight: bold">
           {{ this.password }}
         </div>
-        
+
         <div class="item">
           <label for="password">Password: </label>
-          <br>
+          <br />
           <input id="password" type="text" [(ngModel)]="insertedPassword" />
         </div>
 
@@ -28,24 +30,28 @@
     </div>
   </div>
 
-  <div *ngIf="this.displayInfo">
+  <div *ngIf="this.displayInfo && (this.dataService.windowWidth | async)">
     <div class="column">
       <div class="left">
-        <div>
-          <a
-            href="https://www.linkedin.com/in/yingsiu-lau-0723301b7/"
-            target="_blank"
-            >linkedin</a
-          >
-        </div>
-        <div>
-          <a href="assets/docs/2023_Yingsiu_Lebenslauf.pdf">
-            Lebenslauf herunterladen
-          </a>
-        </div>
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/yingsiu-lau-0723301b7/"
+              target="_blank"
+              >linkedin</a
+            >
+          </li>
+          <li>
+            <a href="assets/docs/2023_Yingsiu_Lebenslauf.pdf">
+              Lebenslauf herunterladen
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="right">
-        <pdf-viewer [src]="pdfSource"></pdf-viewer>
+        <ng-container *ngIf="this.dataService.windowWidth.value > 850">
+          <pdf-viewer [src]="pdfSource"></pdf-viewer>
+        </ng-container>
       </div>
     </div>
   </div>

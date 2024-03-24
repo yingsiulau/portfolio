@@ -16,6 +16,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DataService } from './service/data.service';
+
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,9 +39,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     NgxTypedJsModule,
     NgbModule,
     NgbCarouselModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatMenuModule,
+    MatButtonModule,
   ],
-  providers: [NgbCarouselConfig],
+  providers: [NgbCarouselConfig, DataService, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

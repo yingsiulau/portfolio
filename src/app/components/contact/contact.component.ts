@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +12,10 @@ export class ContactComponent implements OnInit {
   public insertedPassword = '';
   public displayWrong: boolean = false;
   public pdfSource: string = 'assets/docs/2023_Yingsiu_Lebenslauf.pdf'
+
+  constructor(public dataService: DataService){
+
+  }
 
   ngOnInit(): void {
     this.generatePassword();

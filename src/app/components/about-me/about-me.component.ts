@@ -12,13 +12,12 @@ export class AboutMeComponent implements OnInit, AfterViewChecked {
   public reversedOrder: boolean = true;
 
   constructor(public dataService: DataService) {
-    this.width = this.dataService.windowHeight.value;
+    this.width = this.dataService.windowWidth.value;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   ngAfterViewChecked(): void {
-    if (this.dataService.windowHeight.value < 425) {
+    if (this.dataService.windowWidth.value < 425) {
       this.reversedOrder = true;
     }
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public showName = false;
-  constructor(public router: Router) {
+  public windowWidth = 0;
+
+  constructor(public router: Router, public dataService: DataService) {
     this.router.events.subscribe(() => {
       if (this.router.url.toString() === '/aboutme') {
         this.showName = false;

@@ -15,7 +15,7 @@
 }
 
 .right {
-  width: 50%;
+  width: 55%;
   margin-right: 50px;
   > div {
     float: right;
@@ -23,10 +23,21 @@
   }
 }
 
-.active {
-  color: rgb(220, 17, 17);
+.right .active {
+  color: #dc1111;
 }
 
 .link {
   cursor: pointer;
+}
+
+@media (max-width: 725px) {
+  .right {
+    width: 20%;
+    margin-right: 20px;
+    > div {
+      float: right;
+      padding: 10px;
+    }
+  }
 }

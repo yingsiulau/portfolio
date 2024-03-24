@@ -15,7 +15,7 @@ export class AppComponent {
   @HostListener('window:resize', ['$event'])
   getScreenSize(_event: any) {
     this.dataService.windowHeight.next(window.innerHeight);
-    this.dataService.windowHeight.next(window.innerWidth);
+    this.dataService.windowWidth.next(window.innerWidth);
 
     if (localStorage.getItem('pwRight') !== '1337') {
       localStorage.setItem(
