@@ -78,14 +78,23 @@ img {
   margin-top: 100px;
 }
 
+.gallery-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallery {
   height: 50vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   > * {
+    cursor: pointer;
     object-fit: cover;
+    min-width: 250px;
+    width: 50%;
     padding: 10px;
-    height: 300px;
   }
   flex-wrap: wrap;
 }
@@ -97,9 +106,10 @@ img {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .gallery {
     > * {
+      min-width: none;
       max-width: 350px;
     }
   }
@@ -111,6 +121,15 @@ img {
   .right {
     img {
       border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .gallery {
+    > * {
+      width: 100%;
+      padding: 10px;
     }
   }
 }

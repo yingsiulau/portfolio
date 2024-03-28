@@ -1,34 +1,18 @@
 <div class="wrapper">
-  <ngb-carousel class="left" (slide)="onSlide($event)">
+  <ngb-carousel class="left" (slide)="onSlide($event)" #carousel>
     <ng-template ngbSlide id="1">
-      <div class="img-wrapper" (click)="openDialog(1)">
+      <div class="img-wrapper" (click)="openDialog('slide1.png')">
         <img src="assets/images/slide1.png" alt="Random first slide" />
-      </div>
-      <div class="carousel-caption">
-        <h3 class="highlight">
-          <mark> Ansicht für die Pflegefachpersonen </mark>
-        </h3>
-        <p class="highlight"><mark> Angular - Ionic </mark></p>
       </div>
     </ng-template>
     <ng-template ngbSlide id="2">
-      <div class="img-wrapper" (click)="openDialog(2)">
+      <div class="img-wrapper" (click)="openDialog('slide2.png')">
         <img src="assets/images/slide2.png" alt="Random second slide" />
-      </div>
-      <div class="carousel-caption">
-        <h3 class="highlight">
-          <mark> Ansicht für die Stationsleitung </mark>
-        </h3>
-        <p class="highlight"><mark> Angular </mark></p>
       </div>
     </ng-template>
     <ng-template ngbSlide id="3">
-      <div class="img-wrapper" (click)="openDialog(3)">
+      <div class="img-wrapper" (click)="openDialog('slide3.png')">
         <img src="assets/images/slide3.png" alt="Random third slide" />
-      </div>
-      <div class="carousel-caption">
-        <h3 class="highlight"><mark> IPSP Webapp </mark></h3>
-        <p class="highlight"><mark>Angular</mark></p>
       </div>
     </ng-template>
   </ngb-carousel>

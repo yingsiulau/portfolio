@@ -64,7 +64,7 @@
       <div class="text">
         <h2>Kompetent</h2>
         <p>
-          Nach dem zweijährigen Praktikum bei Polypoint würde ich mich als
+          Nach dem zweijährigen Praktikum bei POLYPOINT würde ich mich als
           kompetenter Angular Entwickler bezeichnen.
         </p>
       </div>
@@ -73,10 +73,29 @@
 
   <div class="hobbies">
     <h2>Meine Gallerie</h2>
-    <div class="gallery">
-      <img src="assets/images/stairs.jpeg" alt="xd" />
-      <img src="assets/images/ekin.jpeg" alt="xd" />
-      <img src="assets/images/ekin.jpeg" alt="xd" />
+    <div class="gallery-container">
+      <div class="gallery">
+        <img
+          src="assets/images/bild.jpeg"
+          (click)="openDialog('bild.jpeg')"
+          alt="xd"
+        />
+        <img
+          src="assets/images/museum.jpeg"
+          (click)="openDialog('museum.jpeg')"
+          alt="xd"
+        />
+        <img
+          src="assets/images/inverted1.png"
+          (click)="openDialog('inverted.png')"
+          alt="xd"
+        />
+        <img
+          src="assets/images/shooting.png"
+          (click)="openDialog('shooting.png')"
+          alt="xd"
+        />
+      </div>
     </div>
   </div>
 </div>

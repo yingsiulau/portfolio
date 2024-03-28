@@ -13,7 +13,7 @@
 .right {
   width: 30vw;
   margin-right: 5vw;
-  background-color: rgba(0, 0, 0, 0.222);
+  text-align: justify;
 }
 
 img {
@@ -21,6 +21,7 @@ img {
   height: calc(100vh - 10vh - 80px);
   max-height: 550px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 mark {

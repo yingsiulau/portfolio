@@ -14,7 +14,7 @@ export class ImageDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ImageDialogComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public path: number
+    public path: string
   ) {}
 
   public close(): void {
