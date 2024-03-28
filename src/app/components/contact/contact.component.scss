@@ -8,6 +8,7 @@ pdf-viewer {
 }
 
 .column {
+  opacity: 0;
   display: flex;
 }
 
@@ -60,6 +61,10 @@ a:link {
 
 a:visited {
   color: black;
+}
+
+.information {
+  transition: opacity 0.3s linear 2s;
 }
 
 @media (max-width: 850px) {

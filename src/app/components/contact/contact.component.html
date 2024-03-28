@@ -12,7 +12,12 @@
         <div class="item">
           <label for="password">Password: </label>
           <br />
-          <input id="password" type="text" [(ngModel)]="insertedPassword" />
+          <input
+            id="password"
+            type="text"
+            [(ngModel)]="insertedPassword"
+            (keyup.enter)="checkPassword()"
+          />
         </div>
 
         <div class="item">
@@ -31,7 +36,7 @@
   </div>
 
   <div *ngIf="this.displayInfo && (this.dataService.windowWidth | async)">
-    <div class="column">
+    <div class="column" [@visibleHidden]="displayInfo ? 'visible' : 'error'">
       <div class="left">
         <ul>
           <li>
