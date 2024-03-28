@@ -28,6 +28,14 @@ mark {
   background-color: rgba(0, 0, 0, 0.222);
 }
 
+::ng-deep .carousel-control-next-icon {
+  background-image: url("../../../assets/icons/right.svg");
+}
+
+::ng-deep .carousel-control-prev-icon {
+  background-image: url("../../../assets/icons/left.svg");
+}
+
 @media (max-width: 750px) {
   .wrapper {
     height: calc(100vh - 100px);

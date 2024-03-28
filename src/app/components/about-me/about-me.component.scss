@@ -129,7 +129,6 @@ img {
     margin: auto;
     width: 75vw;
     height: 70px;
-    text-align: center;
   }
 
   .right {
@@ -173,5 +172,27 @@ img {
 @media (min-width: 1921px) {
   .wrapper {
     margin: 5% 20%;
+  }
+
+  .left {
+    margin: auto;
+    width: 60vw;
+    text-align: right;
+  }
+
+  .right {
+    margin: auto;
+    padding-left: 5vw;
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    float: left;
+    img {
+      width: 150%;
+      height: 100%;
+      filter: contrast(1.1);
+      border-radius: 50%;
+    }
   }
 }

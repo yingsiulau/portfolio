@@ -1,11 +1,8 @@
 <div class="wrapper">
   <ngb-carousel class="left" (slide)="onSlide($event)">
     <ng-template ngbSlide id="1">
-      <div class="img-wrapper">
-        <img
-          src="assets/images/yingsiu.jpeg"
-          alt="Random first slide"
-        />
+      <div class="img-wrapper" (click)="openDialog(1)">
+        <img src="assets/images/slide1.png" alt="Random first slide" />
       </div>
       <div class="carousel-caption">
         <h3 class="highlight">
@@ -15,11 +12,8 @@
       </div>
     </ng-template>
     <ng-template ngbSlide id="2">
-      <div class="img-wrapper">
-        <img
-          src="assets/images/chrigu.png"
-          alt="Random second slide"
-        />
+      <div class="img-wrapper" (click)="openDialog(2)">
+        <img src="assets/images/slide2.png" alt="Random second slide" />
       </div>
       <div class="carousel-caption">
         <h3 class="highlight">
@@ -29,8 +23,8 @@
       </div>
     </ng-template>
     <ng-template ngbSlide id="3">
-      <div class="img-wrapper">
-        <img src="assets/images/chrigu.png" alt="Random third slide" />
+      <div class="img-wrapper" (click)="openDialog(3)">
+        <img src="assets/images/slide3.png" alt="Random third slide" />
       </div>
       <div class="carousel-caption">
         <h3 class="highlight"><mark> IPSP Webapp </mark></h3>
@@ -38,5 +32,5 @@
       </div>
     </ng-template>
   </ngb-carousel>
-  <div class="right"><p [innerHTML]="displayText(slideNumber)"></p></div>
+  <div class="right"><p [innerHTML]="displayText()"></p></div>
 </div>
