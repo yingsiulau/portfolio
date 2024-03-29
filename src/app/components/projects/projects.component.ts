@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
-import { MatDialog } from '@angular/material/dialog';
-import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 import { DataService } from 'src/app/service/data.service';
-import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-projects',
@@ -17,10 +14,7 @@ export class ProjectsComponent implements OnInit {
   currentImage: string = '';
   paused = false;
 
-  constructor(
-    private readonly dialog: MatDialog,
-    private readonly dataService: DataService
-  ) {}
+  constructor(private readonly dataService: DataService) {}
 
   ngOnInit(): void {
     this.slideNumber = 1;
@@ -32,14 +26,9 @@ export class ProjectsComponent implements OnInit {
 
   public togglePaused(): void {
     this.paused = !this.paused;
-    console.log('oben' + this.paused);
-
     if (this.paused) {
-      console.log('pause du hurensohn');
       this.carousel.pause();
     } else {
-      console.log('ich fahr weiter du hurensohn, trollyproblem');
-
       this.carousel.cycle();
     }
   }
@@ -49,7 +38,7 @@ export class ProjectsComponent implements OnInit {
       case 1:
         return '<h2>myPOLYPOINT</h2> <br> <p>Während meiner Tätigkeit an der Entwicklung von smartPEP, einer automatisierten Personaleinsatzplanung, erweiterte ich die myPOLYPOINT-App für Gesundheitsfachkräfte durch die Implementierung diverser Eingabemasken. Diese ermöglichten die Erfassung von Planungspräferenzen sowie Vereinbarungen der Mitarbeiter zur Personaleinsatzplanung.</p>';
       case 2:
-        return '<h2>Shiftplaner</h2> <br> <p>Nachdem die Health Professionals ihre Präferenzen erfasst hatten, war es erforderlich, eine Möglichkeit für den Dienstplaner zu schaffen, diese Präferenzen zu überprüfen und gegebenenfalls anzupassen. Zu diesem Zweck habe ich die Funktion zur Übersicht der Planungspräferenzen und Vereinbarungen für Dienstplaner implementiert.</p>';
+        return '<h2>Shiftplaner</h2> <br> <p>Nachdem die Health Professionals ihre Präferenzen erfasst hatten, war es erforderlich, eine Möglichkeit für den Dienstplaner zu schaffen, diese Präferenzen zu überprüfen und gegebenenfalls anzupassen. Zu diesem Zweck habe ich die Funktion zur Übersicht der Planungspräferenzen für Dienstplaner implementiert.</p>';
       case 3:
         return '<h2>IPSP Planning Board </h2> <br> <p>Im Anschluss an die Implementierung der Eingabemaske in der myPOLYPOINT-App konzentrierte ich mich auf die Entwicklung der Stationsleitungsansicht. Diese Ansicht bietet eine umfassende Übersicht über die Planungspräferenzen und Vereinbarungen aller Mitarbeiter innerhalb eines Planblatts für die Stationsleitung. Sie ermöglicht eine detaillierte Analyse der Planungsqualität, einschließlich der Identifizierung von Ruhezeitverletzungen und nicht erfüllten Wünschen.</p>';
 
@@ -61,7 +50,6 @@ export class ProjectsComponent implements OnInit {
   public openDialog(id: string): void {
     this.dataService.openDialog(id, () => {
       this.togglePaused();
-      console.log('unten' + this.paused);
     });
   }
 }
