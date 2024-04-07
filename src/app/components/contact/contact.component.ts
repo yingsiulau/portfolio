@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit {
   public displayInfo: boolean = false;
   public insertedPassword = '';
   public displayWrong: boolean = false;
-  public pdfSource: string = 'assets/docs/2023_Yingsiu_Lebenslauf.pdf';
+  public pdfSource: string = 'assets/docs/2024_Yingsiu_Unterlagen.pdf';
   constructor(public dataService: DataService) {}
 
   ngOnInit(): void {

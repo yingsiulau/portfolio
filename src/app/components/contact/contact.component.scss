@@ -4,17 +4,17 @@
 
 pdf-viewer {
   width: auto;
-  height: 1135px;
+  height: 700px;
 }
 
 .column {
-  opacity: 0;
   display: flex;
 }
 
 .left {
   display: block;
   margin-top: 50px;
+  padding-right: 20px;
 }
 
 .right {
@@ -77,8 +77,17 @@ a:visited {
   }
 }
 
-@media (min-width: 1921px) {
+@media (max-width: 1025px) {
+  pdf-viewer {
+    height: 1135px;
+  }
+}
+
+@media (min-width: 1441px) {
   .wrapper {
     margin: 10% 25%;
+  }
+  pdf-viewer {
+    height: 1135px;
   }
 }
