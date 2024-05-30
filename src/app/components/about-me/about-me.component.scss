@@ -50,7 +50,7 @@ img {
 
 .info {
   img {
-    object-fit: cover;
+    object-fit: contain;
     width: 300px;
     height: 300px;
   }
@@ -148,6 +148,7 @@ img {
     margin: auto;
     width: 75vw;
     height: 70px;
+    text-align: center;
   }
 
   .right {
@@ -173,12 +174,10 @@ img {
       align-items: center;
     }
 
-    .info {
-      img {
-        object-fit: cover;
-        width: 300px;
-        height: 300px;
-      }
+    img {
+      object-fit: contain;
+      width: 300px;
+      height: 300px;
     }
   }
 

@@ -40,7 +40,7 @@ export class ProjectsComponent implements OnInit {
       case 2:
         return '<h2>Shiftplaner</h2> <br> <p>Nachdem die Health Professionals ihre Präferenzen erfasst hatten, war es erforderlich, eine Möglichkeit für den Dienstplaner zu schaffen, diese Präferenzen zu überprüfen und gegebenenfalls anzupassen. Zu diesem Zweck habe ich die Funktion zur Übersicht der Planungspräferenzen für Dienstplaner implementiert.</p>';
       case 3:
-        return '<h2>IPSP Planning Board </h2> <br> <p>Im Anschluss an die Implementierung der Eingabemaske in der myPOLYPOINT-App konzentrierte ich mich auf die Entwicklung der Stationsleitungsansicht. Diese Ansicht bietet eine umfassende Übersicht über die Planungspräferenzen und Vereinbarungen aller Mitarbeiter innerhalb eines Planblatts für die Stationsleitung. Sie ermöglicht eine detaillierte Analyse der Planungsqualität, einschließlich der Identifizierung von Ruhezeitverletzungen und nicht erfüllten Wünschen.</p>';
+        return '<h2>IPSP Planning Board </h2> <br> <p>Im Anschluss an die Implementierung der Eingabemaske in der myPOLYPOINT-App konzentrierte ich mich auf die Entwicklung der Stationsleitungsansicht. Diese Ansicht bietet eine umfassende Übersicht über die Planungspräferenzen und Vereinbarungen aller Mitarbeiter innerhalb eines Planblatts für die Stationsleitung. Sie ermöglicht eine detaillierte Analyse der Planungsqualität, einschliesslich der Identifizierung von Ruhezeitverletzungen und nicht erfüllten Wünschen.</p>';
 
       default:
         return 'error';
