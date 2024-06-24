@@ -6,7 +6,8 @@
 }
 
 img{
-  object-fit: cover;
+  object-fit: contain;
+  max-height: 90vh;
 }
 
 mat-icon {
