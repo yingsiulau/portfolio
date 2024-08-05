@@ -1,10 +1,5 @@
 .wrapper {
-  margin: 70px;
-}
-
-h1,
-h2 {
-  font-family: "akira";
+  margin: 20px 10%;
 }
 
 img {
@@ -20,12 +15,12 @@ img {
   height: 60vh;
   display: flex;
   margin-bottom: 30vh;
-}
 
-.intro:after {
-  content: "";
-  display: table;
-  clear: both;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 .left {
@@ -42,6 +37,7 @@ img {
   display: flex;
   align-items: center;
   float: left;
+
   img {
     filter: contrast(1.1);
     border-radius: 50%;
@@ -76,37 +72,6 @@ img {
   flex-direction: row-reverse;
 }
 
-.gallery-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gallery {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  height: auto;
-
-  img {
-    cursor: pointer;
-    object-fit: cover;
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
-  }
-
-  @media (max-width: 1024px) {
-    /* Tablet size */
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 768px) {
-    /* Mobile size */
-    grid-template-columns: 1fr;
-  }
-}
-
 .hobbies {
   margin-top: 150px;
 }
@@ -119,13 +84,6 @@ img {
 }
 
 @media (max-width: 425px) {
-  .gallery {
-    > * {
-      min-width: none;
-      max-width: 350px;
-    }
-  }
-
   .column {
     flex-wrap: wrap;
   }
@@ -138,7 +96,10 @@ img {
 }
 
 @media (max-width: 610px) {
-  .gallery {
+  .wrapper {
+    margin: 20px 10%;
+  }
+  .column {
     > * {
       width: 100%;
       padding: 10px;
@@ -172,8 +133,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-
     float: left;
+
     img {
       filter: contrast(1.1);
       border-radius: 50%;
@@ -219,6 +180,7 @@ img {
     display: flex;
     align-items: center;
     float: left;
+
     img {
       width: 726px;
       height: 726px;

@@ -8,23 +8,29 @@
       </ng-container>
     </div>
     <div class="right" *ngIf="this.dataService.windowWidth | async">
-      <ng-container *ngIf="this.dataService.windowWidth.value < 725">
-        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <ng-container *ngIf="this.dataService.windowWidth.value < 936">
+        <button mat-mini-fab color="" [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/aboutme">About Me</button>
+          <button mat-menu-item routerLink="/hobbies">Hobbies</button>
           <button mat-menu-item routerLink="/projects">Projects</button>
           <button mat-menu-item routerLink="/contact">Contact</button>
         </mat-menu>
       </ng-container>
-      <ng-container *ngIf="this.dataService.windowWidth.value > 725">
+      <ng-container *ngIf="this.dataService.windowWidth.value > 936">
         <div class="link" routerLink="/contact" routerLinkActive="active">
           Contact
         </div>
         <div class="link" routerLink="/projects" routerLinkActive="active">
           Projects
         </div>
+        <div class="link" routerLink="/hobbies" routerLinkActive="active">
+          Hobbies
+        </div>
         <div class="link" routerLink="/aboutme" routerLinkActive="active">
-          About Me
+          About me
         </div>
       </ng-container>
     </div>

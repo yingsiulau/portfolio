@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
@@ -9,6 +10,11 @@ const routes: Routes = [
   {
     path: 'aboutme',
     component: AboutMeComponent,
+  },
+
+  {
+    path: 'hobbies',
+    component: GalleryComponent
   },
   {
     path: 'projects',
@@ -32,4 +38,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

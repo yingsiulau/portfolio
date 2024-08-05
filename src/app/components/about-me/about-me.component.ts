@@ -1,5 +1,4 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -21,9 +20,5 @@ export class AboutMeComponent implements OnInit, AfterViewChecked {
     if (this.dataService.windowWidth.value < 425) {
       this.reversedOrder = true;
     }
-  }
-
-  public openDialog(path: string): void {
-    this.dataService.openDialog(path);
   }
 }
