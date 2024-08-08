@@ -23,10 +23,13 @@
     "@angular/service-worker": "^17.3.12",
     "@ng-bootstrap/ng-bootstrap": "^16",
     "@popperjs/core": "^2.11.6",
+    "@types/three": "^0.167.1",
     "bootstrap": "^5.2.3",
     "ng2-pdf-viewer": "^10.0.0",
     "ngx-typed-js": "^2.1.1",
     "rxjs": "~7.5.0",
+    "three": "^0.167.1",
+    "three-stdlib": "^2.32.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.4"
   },

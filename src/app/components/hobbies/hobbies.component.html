@@ -1,37 +1,57 @@
 <div class="wrapper">
   <div class="hobbies">
+    <div class="music">
+      <div class="box big">1</div>
+      <!-- This box spans 2 columns and 1 row -->
+      <div class="box">
+        <app-canvas-container></app-canvas-container>
+      </div>
+    </div>
+
     <h2>Meine lieblings Momente</h2>
     <div class="gallery-container">
       <div class="gallery">
         <img
-          src="assets/images/mercedes.jpeg"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/mercedes.jpeg"
           (click)="openDialog('mercedes.jpeg')"
           alt="mercedes"
         />
         <img
-          src="assets/images/eleanor.jpeg"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/eleanor.jpeg"
           (click)="openDialog('eleanor.jpeg')"
           alt="eleanor"
         />
         <img
-          src="assets/images/sunset.jpeg"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/sunset.jpeg"
           (click)="openDialog('sunset.jpeg')"
           alt="sunset"
         />
         <img
-          src="assets/images/polaroid.jpeg"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/polaroid.jpeg"
           (click)="openDialog('polaroid.jpeg')"
           alt="inverted1"
         />
         <img
-          src="assets/images/yingsiu_new.jpeg"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/yingsiu_new.jpeg"
           (click)="openDialog('yingsiu_new.jpeg')"
           alt="yingsiu_new"
         />
         <img
-          src="assets/images/baby.jpeg"
-          (click)="openDialog('baby.jpeg')"
-          alt="baby"
+          class="lazy-load"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          data-src="assets/images/gf.jpeg"
+          (click)="openDialog('gf.jpeg')"
+          alt="gf"
         />
       </div>
     </div>
