@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-gallery',
-  standalone: true,
-  imports: [],
-  templateUrl: './gallery.component.html',
-  styleUrl: './gallery.component.scss'
+  selector: 'app-hobbies',
+  standalone: false,
+  templateUrl: './hobbies.component.html',
+  styleUrl: './hobbies.component.scss'
 })
-export class GalleryComponent {
+export class HobbiesComponent {
   constructor(public dataService: DataService) {
   }
 

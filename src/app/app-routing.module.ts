@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
 
   {
     path: 'hobbies',
-    component: GalleryComponent
+    loadChildren: () => import('./components/hobbies/hobbies.module').then(m => m.HobbiesModule)
   },
   {
     path: 'projects',
