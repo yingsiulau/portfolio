@@ -1,10 +1,37 @@
 <div class="wrapper">
   <div class="hobbies">
     <div class="music">
-      <div class="box big"></div>
-      <!-- This box spans 2 columns and 1 row -->
-      <div class="box">
-        <app-canvas-container></app-canvas-container>
+      <div class="left">
+        <h2>Passion</h2>
+        <p>
+          Um den Rhythmus für den Alltag zu finden und den Tinnitus zu
+          unterdrücken, tauche ich gerne in die Welt der Musik ein.
+          <br />
+          <br />
+          In den letzen Jahren habe ich einige einige Alben gefunden, die mir am
+          herzen liegen, diese möchte ich gerne mit euch teilen.
+        </p>
+        <div *ngFor="let album of albumCollection.albums; let i = index">
+          <ng-container class="album" *ngIf="i === albumIndex">
+            <h2>{{ album.albumTitle }} - {{ album.artist }}</h2>
+            <p><strong>Artist:</strong> {{ album.artist }}</p>
+            <p><strong>Genre:</strong> {{ album.genre }}</p>
+
+            <div class="songs" *ngFor="let song of album.songs">
+              <p>{{ song.title }} - {{ song.length }}</p>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="buttons">
+          <button (click)="onPrevClick()">Previous</button>
+          <button (click)="onNextClick()">Next</button>
+        </div>
+      </div>
+      <div class="right">
+        <app-canvas-container [albumIndex]="albumIndex">
+          [changeTexture]="currentDirection" ></app-canvas-container
+        >
       </div>
     </div>
 

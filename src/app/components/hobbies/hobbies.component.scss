@@ -1,11 +1,59 @@
 .wrapper {
   margin: 20px 10%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+.music {
+  display: flex;
+  flex-direction: row; /* Ensure children are laid out in a row */
+  background-color: red;
+  position: relative; /* For absolute positioning of buttons */
+}
+
+.album {
+  position: relative;
+  padding-bottom: 60px; /* Make space for buttons if needed */
+  overflow: scroll; /* Hide overflow in the album container */
+  background-color: aliceblue;
+}
+
+.songs {
+  overflow-y: auto; /* Enable vertical scrolling for long lists */
+  max-height: calc(2vh - 120px); /* Adjust this value to fit within the available height */
+}
+
+.left {
+  position: relative; /* For positioning the buttons inside this container */
+  background-color: green;
+  width: 33.333%;
+  max-height: calc(66.666%);
+}
+
+.right {
+  background-color: blue;
+  width: 66.6666%;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
 }
 
 app-canvas-container {
-  width: calc((100% / 3) * 2);
-  background-color: palegreen;
+  aspect-ratio: 4 / 3; /* Aspect ratio for the canvas container */
+  width: 100%; /* Ensure it takes full width */
+  height: auto; /* Adjust height automatically */
 }
+
 
 .gallery-container {
   width: 100%;

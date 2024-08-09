@@ -1,4 +1,5 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { albumData } from 'src/assets/songlist';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three-stdlib';
 
@@ -18,14 +19,30 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   private loader!: GLTFLoader;
   private model?: THREE.Object3D;
   private planeGroup?: THREE.Group;
+  private textures: THREE.Texture[] = [];
+  @Input() albumIndex: number = 0; // Input property for albumIndex
+  private albumCollection: AlbumCollection = albumData;
 
   ngOnInit() {
     this.initThree();
   }
 
   ngAfterViewInit() {
+    if (!this.rendererContainer) {
+      console.error('rendererContainer is not defined!');
+      return;
+    }
+
+    this.preloadTextures(); // Wait for textures to be preloaded
     this.loadModel();
     this.addPlane();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['albumIndex']) {
+      this.updateTextures();
+    }
   }
 
   private initThree() {
@@ -33,27 +50,41 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 2000);
     this.camera.position.z = 100;
 
-    // Enable anti-aliasing
+    if (!this.rendererContainer) {
+      console.error('Renderer container is not available!');
+      return;
+    }
+
     this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setClearColor(0x000000, 0);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
 
-   // Add brighter lights
-   const ambientLight = new THREE.AmbientLight(0x404040, 25); // Brighter ambient light
-   this.scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0x404040, 25);
+    this.scene.add(ambientLight);
 
-   const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Brighter directional light
-   directionalLight.position.set(1, 1, 1).normalize();
-   this.scene.add(directionalLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight.position.set(1, 1, 1).normalize();
+    this.scene.add(directionalLight);
 
-   const pointLight = new THREE.PointLight(0xffffff, 1, 100); // Add a point light
-   pointLight.position.set(10, 10, 10);
-   this.scene.add(pointLight);
+    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+    pointLight.position.set(10, 10, 10);
+    this.scene.add(pointLight);
 
+    const hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, 1);
+    this.scene.add(hemisphereLight);
+  }
 
-   const hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, 1); // Add a hemisphere light
-   this.scene.add(hemisphereLight);
+  private preloadTextures() {
+    const textureLoader = new THREE.TextureLoader();
+    // Clear existing textures
+    this.textures = [];
+
+    // Assuming albumCollection is an array of texture paths
+    this.albumCollection.albums.forEach(album => {
+      const texture = textureLoader.load(album.image_path);
+      this.textures.push(texture);
+    });
   }
 
   private loadModel() {
@@ -77,41 +108,60 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   }
 
   private addPlane() {
-    const textureLoader = new THREE.TextureLoader();
-    textureLoader.load('assets/images/gus.jpg', (texture) => {
-      // First plane
-      const planeGeometry1 = new THREE.PlaneGeometry(50, 50);
-      const planeMaterial1 = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-      const plane1 = new THREE.Mesh(planeGeometry1, planeMaterial1);
-      plane1.rotation.y = Math.PI / 3.23;
-      plane1.position.set(15.7, -4, 19.5);
+    if (this.textures.length === 0) {
+      console.error('Textures not preloaded!');
+      return;
+    }
 
-      // Second plane (same texture)
-      const planeGeometry2 = new THREE.PlaneGeometry(50, 50);
-      const planeMaterial2 = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-      const plane2 = new THREE.Mesh(planeGeometry2, planeMaterial2);
-      plane2.rotation.y = Math.PI / -2;
-      plane2.position.set(-4.05, -4, 14); // Different position for the second plane
+    const planeGeometry1 = new THREE.PlaneGeometry(50, 50);
+    const planeMaterial1 = new THREE.MeshBasicMaterial({ map: this.textures[0], side: THREE.DoubleSide });
+    const plane1 = new THREE.Mesh(planeGeometry1, planeMaterial1);
+    plane1.rotation.y = Math.PI / 3.23;
+    plane1.position.set(15.7, -4, 19.5);
 
-      // Create a group to handle the offset rotation
-      this.planeGroup = new THREE.Group();
-      this.planeGroup.add(plane1);
-      this.planeGroup.add(plane2);
+    const planeGeometry2 = new THREE.PlaneGeometry(50, 50);
+    const planeMaterial2 = new THREE.MeshBasicMaterial({ map: this.textures[0], side: THREE.DoubleSide });
+    const plane2 = new THREE.Mesh(planeGeometry2, planeMaterial2);
+    plane2.rotation.y = Math.PI / -2;
+    plane2.position.set(-4.05, -4, 14);
 
-      // Add the planeGroup to the model
-      if (this.model) {
-        this.model.add(this.planeGroup);
-      } else {
-        this.scene.add(this.planeGroup);
-      }
+    this.planeGroup = new THREE.Group();
+    this.planeGroup.add(plane1);
+    this.planeGroup.add(plane2);
 
-      this.onWindowResize();
+    if (this.model) {
+      this.model.add(this.planeGroup);
+    } else {
+      this.scene.add(this.planeGroup);
+    }
+
+    this.onWindowResize();
+    this.renderer.render(this.scene, this.camera);
+  }
+
+
+  private updateTextures() {
+    if (this.renderer?.render && this.planeGroup) {
+      this.planeGroup.children.forEach((plane: any) => {
+        if (plane.material && plane.material.map) {
+          if (this.textures[this.albumIndex]) {
+            plane.material.map = this.textures[this.albumIndex];
+            plane.material.needsUpdate = true;
+          }
+        }
+      });
+
       this.renderer.render(this.scene, this.camera);
-    });
+    }
   }
 
 
   private animate() {
+    if (!this.renderer) {
+      console.error('Renderer is not initialized during animation!');
+      return;
+    }
+
     requestAnimationFrame(() => this.animate());
 
     if (this.model) {
@@ -131,6 +181,11 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   }
 
   private onWindowResize() {
+    if (!this.renderer || !this.camera) {
+      console.error('Renderer or camera not initialized during resize!');
+      return;
+    }
+
     const width = this.rendererContainer.nativeElement.clientWidth;
     const height = this.rendererContainer.nativeElement.clientHeight;
 

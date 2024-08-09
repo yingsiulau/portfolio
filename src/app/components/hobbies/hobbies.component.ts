@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 
+import { albumData } from './../../../assets/songlist'
 @Component({
   selector: 'app-hobbies',
   standalone: false,
@@ -8,6 +9,10 @@ import { DataService } from 'src/app/service/data.service';
   styleUrl: './hobbies.component.scss'
 })
 export class HobbiesComponent implements AfterViewInit {
+  public currentDirection: string = '';
+  public albumIndex: number = 0;
+  public albumCollection: AlbumCollection = albumData;
+
   constructor(public dataService: DataService) {
   }
 
@@ -33,8 +38,17 @@ export class HobbiesComponent implements AfterViewInit {
       observer.observe(img);
     });
   }
+  onNextClick() {
+    this.albumIndex = (this.albumIndex + 1) % this.albumCollection.albums.length; // Adjust for texture count
+  }
+
+  onPrevClick() {
+    this.albumIndex = (this.albumIndex - 1 + this.albumCollection.albums.length) % this.albumCollection.albums.length; // Adjust for texture count
+  }
+
 
   public openDialog(path: string): void {
     this.dataService.openDialog(path);
   }
+
 }

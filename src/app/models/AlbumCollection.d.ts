@@ -1,0 +1,3 @@
+interface AlbumCollection {
+    albums: Album[];
+}
