@@ -88,6 +88,15 @@ app-canvas-container {
   }
 }
 
+@media (min-width: 1440px) {
+  .album {
+    padding-top: 50px;
+  }
+  .songs-container {
+    overflow: visible; /* Ensure content inside can scroll if it overflows */
+  }
+}
+
 @media (max-width: 1024px) {
   /* Tablet size */
 
