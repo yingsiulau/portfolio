@@ -2,58 +2,61 @@
   margin: 20px 10%;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full viewport height */
 }
 
 .music {
   display: flex;
-  flex-direction: row; /* Ensure children are laid out in a row */
-  background-color: red;
-  position: relative; /* For absolute positioning of buttons */
+  flex-direction: row; /* Default row layout */
+  position: relative; /* For positioning child elements */
+  min-height: 590px;
+  margin-bottom: 100px;
 }
 
 .album {
-  position: relative;
-  padding-bottom: 60px; /* Make space for buttons if needed */
-  overflow: scroll; /* Hide overflow in the album container */
-  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Ensure padding is included in height calculations */
 }
 
-.songs {
-  overflow-y: auto; /* Enable vertical scrolling for long lists */
-  max-height: calc(2vh - 120px); /* Adjust this value to fit within the available height */
+.songs-container {
+  height: 192px;
+  overflow: auto; /* Ensure content inside can scroll if it overflows */
 }
 
 .left {
-  position: relative; /* For positioning the buttons inside this container */
-  background-color: green;
   width: 33.333%;
-  max-height: calc(66.666%);
+  text-align: justify;
 }
 
 .right {
-  background-color: blue;
+  position: relative;
   width: 66.6666%;
 }
 
-.buttons {
+mat-icon {
+  margin-bottom: 4px;
+}
+
+.button-container {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #f8f8f8;
-  border-top: 1px solid #ccc;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
+  justify-content: center; /* Center buttons horizontally */
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 app-canvas-container {
-  aspect-ratio: 4 / 3; /* Aspect ratio for the canvas container */
+  aspect-ratio: 4 / 3;
   width: 100%; /* Ensure it takes full width */
-  height: auto; /* Adjust height automatically */
 }
-
 
 .gallery-container {
   width: 100%;
@@ -74,7 +77,7 @@ app-canvas-container {
 .gallery {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   height: auto;
 
   img {
@@ -83,20 +86,46 @@ app-canvas-container {
     width: 100%;
     aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
   }
+}
 
-  @media (max-width: 1024px) {
-    /* Tablet size */
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1024px) {
+  /* Tablet size */
+
+  .gallery {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Correctly applying grid-template-columns to .gallery */
   }
 
-  @media (max-width: 768px) {
-    /* Mobile size */
-    grid-template-columns: 1fr;
+  .music {
+    flex-direction: column; /* Stack left above right on small screens */
+  }
+
+  .left,
+  .right {
+    width: 100%; /* Both take full width when stacked */
+    height: 100%;
+    min-height: 100px; /* Ensure there is enough space for dynamic content */
   }
 }
 
+@media (max-width: 610px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wrapper {
+    margin: 20px;
+  }
+  .gallery {
+    > * {
+      width: 100%;
+    }
+  }
+}
 @media (max-width: 425px) {
   .gallery {
+    grid-template-columns: repeat(1, 1fr);
     > * {
       min-width: none;
       max-width: 350px;
@@ -105,22 +134,5 @@ app-canvas-container {
 
   .column {
     flex-wrap: wrap;
-  }
-
-  .right {
-    img {
-      border-radius: 0;
-    }
-  }
-}
-
-@media (max-width: 610px) {
-  .wrapper {
-    margin: 20px;
-  }
-  .gallery {
-    > * {
-      width: 100%;
-    }
   }
 }

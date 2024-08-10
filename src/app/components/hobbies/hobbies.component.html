@@ -1,41 +1,46 @@
 <div class="wrapper">
   <div class="hobbies">
-    <div class="music">
+    <div class="music" *ngIf="this.dataService.windowWidth | async">
       <div class="left">
-        <h2>Passion</h2>
+        <h2>Musik 🎵</h2>
         <p>
-          Um den Rhythmus für den Alltag zu finden und den Tinnitus zu
-          unterdrücken, tauche ich gerne in die Welt der Musik ein.
-          <br />
-          <br />
-          In den letzen Jahren habe ich einige einige Alben gefunden, die mir am
-          herzen liegen, diese möchte ich gerne mit euch teilen.
+          Um den Alltag im Einklang mit Rhythmus und Harmonie zu gestalten und
+          gleichzeitig den Tinnitus zu lindern, widme ich mich leidenschaftlich
+          der Welt der Musik. In den letzten Jahren habe ich eine Reihe von
+          Alben entdeckt, die mir besonders am Herzen liegen. Gerne möchte ich
+          diese musikalischen Schätze mit Ihnen teilen.
         </p>
         <div *ngFor="let album of albumCollection.albums; let i = index">
-          <ng-container class="album" *ngIf="i === albumIndex">
-            <h2>{{ album.albumTitle }} - {{ album.artist }}</h2>
-            <p><strong>Artist:</strong> {{ album.artist }}</p>
+          <div class="album" *ngIf="i === albumIndex">
+            <h2>{{ album.albumTitle }}</h2>
+            <h3>{{ album.artist }}</h3>
             <p><strong>Genre:</strong> {{ album.genre }}</p>
-
-            <div class="songs" *ngFor="let song of album.songs">
-              <p>{{ song.title }} - {{ song.length }}</p>
+            <div class="songs-container">
+              <div class="songs" *ngFor="let song of album.songs">
+                {{ song.title }} - {{ song.length }}<br />
+              </div>
             </div>
-          </ng-container>
-        </div>
-
-        <div class="buttons">
-          <button (click)="onPrevClick()">Previous</button>
-          <button (click)="onNextClick()">Next</button>
+          </div>
         </div>
       </div>
       <div class="right">
         <app-canvas-container [albumIndex]="albumIndex">
-          [changeTexture]="currentDirection" ></app-canvas-container
+          [changeTexture]="currentDirection"</app-canvas-container
         >
+        <div class="button-container">
+          <div class="buttons">
+            <button mat-icon-button (click)="onPrevClick()">
+              <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onNextClick()">
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h2>Meine lieblings Momente</h2>
+    <h2>Gallerie 📷</h2>
     <div class="gallery-container">
       <div class="gallery">
         <img

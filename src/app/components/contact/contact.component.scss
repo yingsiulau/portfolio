@@ -75,10 +75,8 @@ a:visited {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 400px;
   }
-}
-
-@media (min-width: 851px) {
 }
 
 @media (min-width: 1921px) {

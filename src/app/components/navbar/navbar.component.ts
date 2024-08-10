@@ -9,7 +9,6 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class NavbarComponent implements OnInit {
   public showName = false;
-  public windowWidth = 0;
 
   constructor(public router: Router, public dataService: DataService) {
     this.router.events.subscribe(() => {

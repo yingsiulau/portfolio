@@ -47,7 +47,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
 
   private initThree() {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 2000);
+    this.camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.01, 2000);
     this.camera.position.z = 100;
 
     if (!this.rendererContainer) {

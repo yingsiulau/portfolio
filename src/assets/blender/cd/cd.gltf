@@ -109,13 +109,7 @@
 			},
 			"name":"Cover",
 			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":0
-				},
-				"metallicFactor":0,
-				"metallicRoughnessTexture":{
-					"index":1
-				}
+				"metallicFactor":0
 			}
 		},
 		{
@@ -137,7 +131,7 @@
 			"name":"Material.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":2
+					"index":0
 				},
 				"metallicFactor":0.4833333492279053,
 				"roughnessFactor":0.13333334028720856
@@ -158,7 +152,7 @@
 			"name":"Material.002",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":3
+					"index":1
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.40909093618392944
@@ -334,28 +328,10 @@
 		},
 		{
 			"sampler":0,
-			"source":1
-		},
-		{
-			"sampler":0,
-			"source":2
-		},
-		{
-			"sampler":0,
-			"source":2
+			"source":0
 		}
 	],
 	"images":[
-		{
-			"mimeType":"image/png",
-			"name":"clairo",
-			"uri":"clairo.png"
-		},
-		{
-			"mimeType":"image/png",
-			"name":"clairo",
-			"uri":"clairo-1.png"
-		},
 		{
 			"mimeType":"image/png",
 			"name":"2cd43b_0242e604c61d4732ac33ede263ee117f_mv2",
