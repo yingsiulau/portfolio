@@ -4,4 +4,5 @@ interface Album {
     genre: string;
     songs: Song[];
     image_path: string;
+    releaseYear: number;
 }

@@ -2,7 +2,7 @@
   <div class="hobbies">
     <div class="music" *ngIf="this.dataService.windowWidth | async">
       <div class="left">
-        <h2>Musik 🎵</h2>
+        <h2>Musik <mat-icon>music_note</mat-icon></h2>
         <p>
           Um den Alltag im Einklang mit Rhythmus und Harmonie zu gestalten und
           gleichzeitig den Tinnitus zu lindern, widme ich mich leidenschaftlich
@@ -12,7 +12,7 @@
         </p>
         <div *ngFor="let album of albumCollection.albums; let i = index">
           <div class="album" *ngIf="i === albumIndex">
-            <h2>{{ album.albumTitle }}</h2>
+            <h2>{{ album.albumTitle }} ({{ album.releaseYear }})</h2>
             <h3>{{ album.artist }}</h3>
             <p><strong>Genre:</strong> {{ album.genre }}</p>
             <div class="songs-container">
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <h2>Gallerie 📷</h2>
+    <h2>Gallerie <mat-icon>photo_camera</mat-icon></h2>
     <div class="gallery-container">
       <div class="gallery">
         <img

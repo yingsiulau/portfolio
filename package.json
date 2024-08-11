@@ -29,6 +29,7 @@
     "ngx-typed-js": "^2.1.1",
     "rxjs": "~7.5.0",
     "three": "^0.167.1",
+    "three-css3drenderer": "^1.0.1",
     "three-stdlib": "^2.32.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.4"

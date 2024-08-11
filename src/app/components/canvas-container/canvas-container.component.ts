@@ -1,12 +1,12 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges } from '@angular/core';
 import { albumData } from 'src/assets/songlist';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three-stdlib';
+import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 @Component({
   selector: 'app-canvas-container',
   standalone: true,
-  imports: [],
   templateUrl: './canvas-container.component.html',
   styleUrls: ['./canvas-container.component.scss']
 })
@@ -16,11 +16,12 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
+  private css3DRenderer!: CSS3DRenderer;
   private loader!: GLTFLoader;
   private model?: THREE.Object3D;
   private planeGroup?: THREE.Group;
   private textures: THREE.Texture[] = [];
-  @Input() albumIndex: number = 0; // Input property for albumIndex
+  @Input() albumIndex: number = 0;
   private albumCollection: AlbumCollection = albumData;
 
   ngOnInit() {
@@ -33,10 +34,9 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.preloadTextures(); // Wait for textures to be preloaded
+    this.preloadTextures();
     this.loadModel();
     this.addPlane();
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -54,11 +54,11 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       console.error('Renderer container is not available!');
       return;
     }
-
     this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setClearColor(0x000000, 0);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
+
 
     const ambientLight = new THREE.AmbientLight(0x404040, 25);
     this.scene.add(ambientLight);
@@ -77,10 +77,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
 
   private preloadTextures() {
     const textureLoader = new THREE.TextureLoader();
-    // Clear existing textures
     this.textures = [];
-
-    // Assuming albumCollection is an array of texture paths
     this.albumCollection.albums.forEach(album => {
       const texture = textureLoader.load(album.image_path);
       this.textures.push(texture);
@@ -140,6 +137,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   }
 
 
+
   private updateTextures() {
     if (this.renderer?.render && this.planeGroup) {
       this.planeGroup.children.forEach((plane: any) => {
@@ -154,7 +152,6 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       this.renderer.render(this.scene, this.camera);
     }
   }
-
 
   private animate() {
     if (!this.renderer) {
@@ -171,7 +168,6 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     if (this.planeGroup) {
       this.planeGroup.rotation.y -= 0.01;
     }
-
     this.renderer.render(this.scene, this.camera);
   }
 
