@@ -42,7 +42,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       this.isLoaded = true;
-    }, 0);
+    }, 500);
   }
 
   ngOnChanges(changes: SimpleChanges) {
