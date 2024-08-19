@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { albumData } from 'src/assets/songlist';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three-stdlib';
@@ -8,14 +7,14 @@ import { GLTFLoader } from 'three-stdlib';
 @Component({
   selector: 'app-canvas-container',
   standalone: true,
-  imports: [CommonModule],  // Ensure CommonModule is imported here
+  imports: [CommonModule],
   templateUrl: './canvas-container.component.html',
   styleUrls: ['./canvas-container.component.scss']
 })
 export class CanvasContainerComponent implements OnInit, AfterViewInit {
   @ViewChild('rendererContainer', { static: true }) rendererContainer!: ElementRef;
 
-  public isLoaded: boolean = false
+  public isLoaded: boolean = false;
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
@@ -36,13 +35,14 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       return;
     }
 
+    this.rendererContainer.nativeElement.classList.add('hidden');
     this.preloadTextures();
     this.loadModel();
     this.addPlane();
 
     setTimeout(() => {
       this.isLoaded = true;
-    }, 500);
+    }, 700);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -64,7 +64,6 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setClearColor(0x000000, 0);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
-
 
     const ambientLight = new THREE.AmbientLight(0x404040, 25);
     this.scene.add(ambientLight);
@@ -141,8 +140,6 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.onWindowResize();
     this.renderer.render(this.scene, this.camera);
   }
-
-
 
   private updateTextures() {
     if (this.renderer?.render && this.planeGroup) {
