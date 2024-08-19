@@ -58,7 +58,11 @@
       </div>
       <div class="right">
         <ng-container *ngIf="this.dataService.windowWidth.value > 900">
-          <pdf-viewer [src]="pdfSource"></pdf-viewer>
+          <pdf-viewer
+            [src]="pdfSource"
+            (after-load-complete)="onPdfLoadComplete()"
+            [ngClass]="{ hidden: !isLoaded, loaded: isLoaded }"
+          ></pdf-viewer>
         </ng-container>
       </div>
     </div>

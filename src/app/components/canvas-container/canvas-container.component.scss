@@ -11,4 +11,13 @@ div {
   padding: 0;
   overflow: hidden;
 }
-  
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.loaded {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}

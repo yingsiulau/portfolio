@@ -5,24 +5,13 @@ import {
   transition,
   animate,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  animations: [
-    trigger('visibleHidden', [
-      state(
-        'visible',
-        style({
-          opacity: 1,
-        })
-      ),
-      transition('* => visible', [animate('1s')]),
-    ]),
-  ],
 })
 export class ContactComponent implements OnInit {
   public password: string = '';
@@ -30,7 +19,9 @@ export class ContactComponent implements OnInit {
   public insertedPassword = '';
   public displayWrong: boolean = false;
   public pdfSource: string = 'assets/docs/2024_Yingsiu_Unterlagen.pdf';
-  constructor(public dataService: DataService) {}
+  public isLoaded = false;
+
+  constructor(public dataService: DataService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.generatePassword();
@@ -51,5 +42,9 @@ export class ContactComponent implements OnInit {
     } else {
       this.displayWrong = true;
     }
+  }
+  onPdfLoadComplete() {
+    this.isLoaded = true;
+    this.cdr.detectChanges(); // Manually trigger change detection
   }
 }

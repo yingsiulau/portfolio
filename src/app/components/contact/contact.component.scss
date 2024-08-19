@@ -68,6 +68,18 @@ a:visited {
   transition: opacity 0.3s linear 2s;
 }
 
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.loaded {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
 @media (max-width: 900px) {
   .column {
     display: flex;

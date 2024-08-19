@@ -1,22 +1,24 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { albumData } from 'src/assets/songlist';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three-stdlib';
-import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 @Component({
   selector: 'app-canvas-container',
   standalone: true,
+  imports: [CommonModule],  // Ensure CommonModule is imported here
   templateUrl: './canvas-container.component.html',
   styleUrls: ['./canvas-container.component.scss']
 })
 export class CanvasContainerComponent implements OnInit, AfterViewInit {
   @ViewChild('rendererContainer', { static: true }) rendererContainer!: ElementRef;
 
+  public isLoaded: boolean = false
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
-  private css3DRenderer!: CSS3DRenderer;
   private loader!: GLTFLoader;
   private model?: THREE.Object3D;
   private planeGroup?: THREE.Group;
@@ -37,6 +39,10 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.preloadTextures();
     this.loadModel();
     this.addPlane();
+
+    setTimeout(() => {
+      this.isLoaded = true;
+    }, 0);
   }
 
   ngOnChanges(changes: SimpleChanges) {

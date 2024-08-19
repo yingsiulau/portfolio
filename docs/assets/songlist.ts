@@ -151,7 +151,7 @@ export const albumData: AlbumCollection = {
     {
       albumTitle: "Trench",
       artist: "Twenty One Pilots",
-      genre: "Alternative Rock, Hip Hop, Electropop",
+      genre: "Alternative Rock, Electropop",
       releaseYear: 2018,
       songs: [
         {
