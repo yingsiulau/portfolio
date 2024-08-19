@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { albumData } from 'src/assets/songlist';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit, Input, SimpleChanges } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three-stdlib';
+import { albumData } from 'src/assets/songlist';
 
 @Component({
   selector: 'app-canvas-container',
@@ -26,7 +26,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
   private albumCollection: AlbumCollection = albumData;
 
   ngOnInit() {
-    this.initThree();
+    this.initThree(); // Initialize Three.js environment
   }
 
   ngAfterViewInit() {
@@ -35,14 +35,22 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       return;
     }
 
+    // Start with the container hidden
     this.rendererContainer.nativeElement.classList.add('hidden');
-    this.preloadTextures();
-    this.loadModel();
-    this.addPlane();
 
-    setTimeout(() => {
-      this.isLoaded = true;
-    }, 700);
+    // Load textures sequentially and then proceed with model and planes
+    this.preloadTexturesSequentially()
+      .then(() => {
+        this.loadModel(); // Load model after textures are ready
+        // No need to wait for model to load before adding planes, it can be done in parallel
+        this.addPlane(); 
+        this.isLoaded = true;
+        this.rendererContainer.nativeElement.classList.remove('hidden');
+        this.rendererContainer.nativeElement.classList.add('loaded');
+      })
+      .catch(error => {
+        console.error('Error during loading process:', error);
+      });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -65,6 +73,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.renderer.setClearColor(0x000000, 0);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
 
+    // Add lights
     const ambientLight = new THREE.AmbientLight(0x404040, 25);
     this.scene.add(ambientLight);
 
@@ -80,13 +89,32 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     this.scene.add(hemisphereLight);
   }
 
-  private preloadTextures() {
+  private async preloadTexturesSequentially(): Promise<void> {
     const textureLoader = new THREE.TextureLoader();
-    this.textures = [];
-    this.albumCollection.albums.forEach(album => {
-      const texture = textureLoader.load(album.image_path);
-      this.textures.push(texture);
-    });
+    for (const album of this.albumCollection.albums) {
+      try {
+        const texture = await new Promise<THREE.Texture>((resolve, reject) => {
+          console.log(`Loading texture from ${album.image_path}`); // Debugging line
+          textureLoader.load(
+            album.image_path,
+            (texture) => {
+              console.log(`Texture loaded from ${album.image_path}`); // Debugging line
+              resolve(texture);
+            },
+            undefined,
+            (error) => {
+              console.error(`Error loading texture from ${album.image_path}:`, error); // Debugging line
+              reject(error);
+            }
+          );
+        });
+        this.textures.push(texture);
+      } catch (error) {
+        console.error('Error loading texture:', error);
+        throw error; // Re-throw error to propagate it
+      }
+    }
+    console.log('All textures loaded successfully'); // Debugging line
   }
 
   private loadModel() {
@@ -99,6 +127,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
         this.model.scale.set(25, 25, 25);
         this.scene.add(this.model);
 
+        // No need to call addPlane here; it is already called after texture preload
         this.onWindowResize();
         this.animate();
       },
