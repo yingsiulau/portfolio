@@ -24,9 +24,7 @@ ngb-carousel {
 .img-wrapper {
   cursor: pointer;
   width: 100%; /* Ensure the width matches the .right div */
-  height: 400px; /* Default height for images */
   overflow: hidden; /* Hide any overflow */
-  /* Remove margin and padding */
   margin: 0;
   padding: 0;
 }
@@ -34,7 +32,8 @@ ngb-carousel {
 img {
   width: 100%; /* Ensure images fit the width of the container */
   height: 100%; /* Ensure images fill the height of their container */
-  object-fit: cover; /* Maintain aspect ratio */
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 /* Responsive adjustments for various screen sizes */
@@ -84,29 +83,14 @@ img {
     height: 400px; /* Adjust height for mobile devices */
   }
 }
+@media (max-width: 1439px) {
+ 
 
-/* Large screens (1921px and above) */
-@media (min-width: 1921px) {
-  .wrapper {
-    height: calc(100vh - 100px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .left {
-    width: 40%;
-  }
-
-  .right {
-    width: 30%;
-  }
 
   .img-wrapper {
-    height: 500px; /* Height for large screens */
+    height: 365px; /* Adjust height for tablets */
   }
 }
-
 ::ng-deep .carousel-control-next-icon {
   background-image: url("../../../assets/icons/right.svg");
 }

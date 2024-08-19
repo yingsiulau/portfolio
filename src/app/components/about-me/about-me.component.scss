@@ -4,10 +4,12 @@
 
 img {
   max-height: calc(50vh);
+  mix-blend-mode: multiply;
 }
 
 .typing {
-  color: rgb(220, 17, 17);
+  font-family: "dm_serif";
+  color: #1b365c;
   padding-right: 10px;
 }
 
@@ -183,9 +185,10 @@ img {
 
     img {
       width: 726px;
-      height: 726px;
+      min-height: 726px;
       filter: contrast(1.1);
       border-radius: 50%;
+      aspect-ratio: 1 / 1;
     }
   }
 }

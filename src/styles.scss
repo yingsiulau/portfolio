@@ -26,7 +26,6 @@ $portfolio-theme: mat.define-light-theme(
       accent: $portfolio-accent,
       warn: $portfolio-warn,
     ),
-    typography: mat.define-typography-config(),
     density: 0,
   )
 );
@@ -40,6 +39,7 @@ $portfolio-theme: mat.define-light-theme(
 
 body {
   margin: 0px;
+  background-color: #faf9f6 !important;
 }
 
 @font-face {
@@ -67,8 +67,32 @@ body {
   src: url(assets/font/akira/Akira.otf);
 }
 
+@font-face {
+  font-family: "dm_serif";
+  src: url(assets/font/Montserrat/DM_Serif_Text/DMSerifText-Regular.ttf);
+}
+@font-face {
+  font-family: "montserrat";
+  src: url(assets/font/Montserrat/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+  font-family: "montserrat";
+}
+
 h1 {
-  font-family: "akira";
+  font-family: "dm_serif";
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-family: "dm_serif";
+}
+
+p,
+li {
+  font-family: "montserrat";
 }
 
 /* Importing Bootstrap SCSS file. */

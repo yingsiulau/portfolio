@@ -12,14 +12,14 @@
         </p>
         <div *ngFor="let album of albumCollection.albums; let i = index">
           <div class="album" *ngIf="i === albumIndex">
-            <h2>{{ album.albumTitle }} ({{ album.releaseYear }})</h2>
+            <h2>{{ album.albumTitle }}</h2>
             <h3>{{ album.artist }}</h3>
             <p><strong>Genre:</strong> {{ album.genre }}</p>
-            <div class="songs-container">
-              <div class="songs" *ngFor="let song of album.songs">
-                {{ song.title }} - {{ song.length }}<br />
-              </div>
-            </div>
+            <ol class="songs-container">
+              <li *ngFor="let song of album.songs">
+                {{ song.title }} - {{ song.length }}
+              </li>
+            </ol>
           </div>
         </div>
       </div>

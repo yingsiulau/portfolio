@@ -3,7 +3,6 @@
   align-items: center;
   flex-wrap: nowrap;
   height: 100px;
-  font-family: "akira";
 }
 
 .left {
@@ -17,6 +16,7 @@
 .right {
   width: 55%;
   margin-right: 50px;
+
   > div {
     float: right;
     padding: 10px;
@@ -24,11 +24,20 @@
 }
 
 .right .active {
-  color: #dc1111;
+  color: #1b365c;
 }
 
 .link {
   cursor: pointer;
+  h3 {
+    font-size: 16pt;
+  }
+}
+
+@media (max-width: 610px) {
+  .left {
+    margin-left: 20px;
+  }
 }
 
 @media (max-width: 936px) {

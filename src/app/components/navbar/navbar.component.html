@@ -3,7 +3,7 @@
     <div class="left">
       <ng-container *ngIf="showName">
         <div class="link" routerLink="/aboutme">
-          <h3>Yingsiu Lau</h3>
+          <h1>Yingsiu Lau</h1>
         </div>
       </ng-container>
     </div>
@@ -21,16 +21,16 @@
       </ng-container>
       <ng-container *ngIf="this.dataService.windowWidth.value > 936">
         <div class="link" routerLink="/contact" routerLinkActive="active">
-          Contact
+          <h3>Contact</h3>
         </div>
         <div class="link" routerLink="/projects" routerLinkActive="active">
-          Projects
+          <h3>Projects</h3>
         </div>
         <div class="link" routerLink="/hobbies" routerLinkActive="active">
-          Hobbies
+          <h3>Hobbies</h3>
         </div>
         <div class="link" routerLink="/aboutme" routerLinkActive="active">
-          About me
+          <h3>About me</h3>
         </div>
       </ng-container>
     </div>

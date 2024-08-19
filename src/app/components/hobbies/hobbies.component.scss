@@ -20,12 +20,11 @@
 
 .songs-container {
   height: 192px;
-  overflow: auto; /* Ensure content inside can scroll if it overflows */
+  overflow-y: scroll;
 }
 
 .left {
   width: 33.333%;
-  text-align: justify;
 }
 
 .right {
@@ -86,7 +85,7 @@ app-canvas-container {
     cursor: pointer;
     object-fit: cover;
     width: 100%;
-    aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -94,19 +93,22 @@ app-canvas-container {
   .album {
     padding-top: 50px;
   }
+
   .songs-container {
-    overflow: visible; /* Ensure content inside can scroll if it overflows */
+    height: 240px;
+    overflow-y: scroll;
+  }
+}
+
+@media (min-width: 1919px) {
+  .songs-container {
+    overflow-y: visible;
   }
 }
 
 @media (max-width: 1024px) {
-  /* Tablet size */
-
   .gallery {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); /* Correctly applying grid-template-columns to .gallery */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .music {
