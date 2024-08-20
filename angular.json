@@ -36,6 +36,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
+            "allowedCommonJsDependencies": ["ng2-pdf-viewer"],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
