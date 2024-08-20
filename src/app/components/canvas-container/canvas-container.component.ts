@@ -93,20 +93,14 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
     for (const album of this.albumCollection.albums) {
       try {
         const texture = await new Promise<THREE.Texture>((resolve, reject) => {
-          console.log(`Loading texture from ${album.image_path}`); // Debugging line
           textureLoader.load(
             album.image_path,
             (texture) => {
-              console.log(`Texture loaded from ${album.image_path}`); // Debugging line
               resolve(texture);
               this.isLoaded = true
-              console.log(
-                "%cDone", "color:green;"
-              );
             },
             undefined,
             (error) => {
-              console.error(`Error loading texture from ${album.image_path}:`, error); // Debugging line
               reject(error);
             }
           );
