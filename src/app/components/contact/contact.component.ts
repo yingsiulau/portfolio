@@ -1,10 +1,3 @@
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from '@angular/animations';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 
@@ -21,7 +14,7 @@ export class ContactComponent implements OnInit {
   public pdfSource: string = 'assets/docs/2024_Yingsiu_Unterlagen.pdf';
   public isLoaded = false;
 
-  constructor(public dataService: DataService, private cdr: ChangeDetectorRef) { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
     this.generatePassword();
@@ -42,9 +35,5 @@ export class ContactComponent implements OnInit {
     } else {
       this.displayWrong = true;
     }
-  }
-  onPdfLoadComplete() {
-    this.isLoaded = true;
-    this.cdr.detectChanges(); // Manually trigger change detection
   }
 }

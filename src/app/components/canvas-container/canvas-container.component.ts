@@ -43,8 +43,7 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
       .then(() => {
         this.loadModel(); // Load model after textures are ready
         // No need to wait for model to load before adding planes, it can be done in parallel
-        this.addPlane(); 
-        this.isLoaded = true;
+        this.addPlane();
         this.rendererContainer.nativeElement.classList.remove('hidden');
         this.rendererContainer.nativeElement.classList.add('loaded');
       })
@@ -100,6 +99,10 @@ export class CanvasContainerComponent implements OnInit, AfterViewInit {
             (texture) => {
               console.log(`Texture loaded from ${album.image_path}`); // Debugging line
               resolve(texture);
+              this.isLoaded = true
+              console.log(
+                "%cDone", "color:green;"
+              );
             },
             undefined,
             (error) => {
