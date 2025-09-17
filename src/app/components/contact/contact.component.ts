@@ -11,7 +11,7 @@ export class ContactComponent implements OnInit {
   public displayInfo: boolean = false;
   public insertedPassword = '';
   public displayWrong: boolean = false;
-  public pdfSource: string = 'assets/docs/2024_Yingsiu_Unterlagen.pdf';
+  public pdfSource: string = 'assets/docs/Yingsiu_Lau_Dossier_2025.pdf';
   public isLoaded = false;
 
   constructor(public dataService: DataService) { }

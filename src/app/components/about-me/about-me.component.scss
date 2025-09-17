@@ -67,6 +67,10 @@ img {
 .column {
   display: flex;
   margin: 50px 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px
 }
 
 .reversed {

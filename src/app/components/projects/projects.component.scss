@@ -1,100 +1,79 @@
 .wrapper {
   margin: 0 10%;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 Spalten */
+  grid-template-rows: repeat(6, 1fr);    /* 6 Reihen */
+  gap: 12px;
+}
+
+.parent > div {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-ngb-carousel {
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+/* Hover Effekt */
+.parent > div:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 12px 28px;
 }
 
-.left {
-  width: 60%;
-  margin-right: 5vw;
+/* Bilder einheitlich */
+.parent > div img {
+  width: 100%;
+  object-fit: cover;  /* Bilder nicht verzerren */
 }
 
-.right {
-  width: 40%;
-  text-align: justify;
+/* Textblock */
+.parent > div .text {
+  padding: 16px;
+  flex: 1;            /* nimmt restlichen Platz ein */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.img-wrapper {
-  cursor: pointer;
-  width: 100%; /* Ensure the width matches the .right div */
-  overflow: hidden; /* Hide any overflow */
-  margin: 0;
-  padding: 0;
+/* Grid-Layout nach Skizze */
+.div1 {
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 3;
 }
 
-img {
-  width: 100%; /* Ensure images fit the width of the container */
-  height: 100%; /* Ensure images fill the height of their container */
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
+.div2 {
+  grid-column: 5 / span 2;
+  grid-row: 1 / span 4;
 }
 
-/* Responsive adjustments for various screen sizes */
+.div3 {
+  grid-column: 1 / span 4;
+  grid-row: 4 / span 3;
+}
 
-/* Tablets and below (up to 936px) */
-@media (max-width: 936px) {
-  .wrapper {
-    margin: 10%;
-    flex-direction: column;
-    align-items: stretch;
+.div4 {
+  grid-column: 5 / span 2;
+  grid-row: 5 / span 2;
+}
+
+/* Responsiv: alles untereinander */
+@media (max-width: 1024px) {
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
-  .left {
-    width: 80vw;
-    margin-right: 0;
+  .div1,
+  .div2,
+  .div3,
+  .div4 {
+    grid-column: auto;
+    grid-row: auto;
   }
-
-  .right {
-    width: 100%;
-    margin-top: 70px;
-  }
-
-  .img-wrapper {
-    height: 400px; /* Adjust height for tablets */
-  }
-}
-
-/* Mobile devices and below (up to 749px) */
-@media (max-width: 749px) {
-  .wrapper {
-    height: auto;
-    margin: 0;
-  }
-
-  .left {
-    width: 90vw;
-    margin-right: 0;
-    margin: 5vw;
-  }
-
-  .right {
-    width: 90vw;
-    margin: 5vw;
-  }
-
-  .img-wrapper {
-    height: 400px; /* Adjust height for mobile devices */
-  }
-}
-@media (max-width: 1439px) {
- 
-
-
-  .img-wrapper {
-    height: 365px; /* Adjust height for tablets */
-  }
-}
-::ng-deep .carousel-control-next-icon {
-  background-image: url("../../../assets/icons/right.svg");
-}
-
-::ng-deep .carousel-control-prev-icon {
-  background-image: url("../../../assets/icons/left.svg");
 }

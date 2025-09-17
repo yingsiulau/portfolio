@@ -1,20 +1,76 @@
 <div class="wrapper">
-  <ngb-carousel class="left" (slide)="onSlide($event)" #carousel>
-    <ng-template ngbSlide id="1">
-      <div class="img-wrapper" (click)="openDialog('slide1.png')">
-        <img src="assets/images/slide1.png" alt="first slide" />
+  <div class="parent">
+    <!-- Card 1 -->
+    <div class="div1">
+      <img src="assets/images/swisscom.jpg" alt="Swisscom" />
+      <div class="text">
+        Während meines sechsmonatigen Einsatzes bei der Swisscom AG in Ittigen
+        war ich Teil des Managed-Mac-Teams. Dabei konnte ich wertvolle Erfahrung
+        mit modernen Technologien wie Jamf Pro sammeln, insbesondere beim
+        Onboarding und Management von MacBooks sowie in der Zusammenarbeit mit
+        Microsoft-Produkten und Azure. Zu meinen Aufgaben gehörte zudem der
+        Support von Mitarbeitenden, das Erarbeiten und Dokumentieren von
+        Lösungen sowie die verständliche Vermittlung technischer Zusammenhänge.
+        Besonders motivierend empfand ich den starken Teamzusammenhalt und die
+        gemeinsame Problemlösung, durch die ich meine Fähigkeiten
+        weiterentwickeln und aktiv zum Erfolg des Teams beitragen konnte.
+        <br /><br />
+        Einsatzdauer: Januar 2025 - Juli 2025
       </div>
-    </ng-template>
-    <ng-template ngbSlide id="2">
-      <div class="img-wrapper" (click)="openDialog('slide2.png')">
-        <img src="assets/images/slide2.png" alt="second slide" />
+    </div>
+
+    <!-- Card 2 -->
+    <div class="div2">
+      <img src="assets/images/militaer.jpeg" alt="Militär" />
+      <div class="text">
+        Während meiner Rekrutenschule in Monte Ceneri als Verkehrssoldat wurde
+        ich regelmäßig mit neuen Herausforderungen konfrontiert, die meine
+        Disziplin und Teamfähigkeit deutlich gestärkt haben. Ich habe gelernt,
+        auf die Stärken und Schwächen meiner Kameraden einzugehen, um gemeinsam
+        bestmögliche Ergebnisse zu erzielen, und gleichzeitig die wertvollen,
+        humorvollen Momente zu schätzen. Das Motorradfahren erlernte ich
+        innerhalb weniger Wochen, wobei ich durch zusätzliches Training
+        eigenständig Fortschritte erzielte. Besonders wichtig war für mich die
+        Zusammenarbeit mit dem Kader: Auch als kleines „Zahnrad“ im großen
+        Ganzen habe ich Verantwortung übernommen, mitgedacht und meinen Beitrag
+        geleistet, um gemeinsam Herausforderungen erfolgreich zu meistern.
+        <br /><br />
+        Dienstzeit:
+        <ul>
+          <li>RS: Januar 2024 - Mai 2024</li>
+
+          <li>WK: August 2025</li>
+        </ul>
       </div>
-    </ng-template>
-    <ng-template ngbSlide id="3">
-      <div class="img-wrapper" (click)="openDialog('slide3.png')">
-        <img src="assets/images/slide3.png" alt="third slide" />
+    </div>
+
+    <!-- Card 3 -->
+    <div class="div3">
+      <img src="assets/images/polypoint.jpg" alt="Polypoint" />
+      <div class="text">
+        Bei der POLYPOINT AG absolvierte ich mein Praktikum als
+        Frontend-Entwickler, in welchem ich auch meine Abschlussprüfung
+        durchführte. Während dieser Zeit vertiefte ich mein Wissen im
+        Scrum-Framework und war aktiv in allen Phasen eingebunden – vom PI bis
+        hin zum Sprint Refinement. Dabei übernahm ich Aufgaben wie
+        Präsentationen, die Umsetzung von Feedback sowie die aktive Mitarbeit im
+        Team. Technisch konnte ich insbesondere meine Kenntnisse in Angular,
+        TypeScript und Node-Modulen erweitern und diese Erfahrungen erfolgreich
+        auf weitere Frameworks wie Vue.js oder React.js übertragen. Besonders
+        motivierend war für mich, dass meine Arbeit im Gesundheitsumfeld
+        eingesetzt wird und dadurch den Alltag von Health Professionals
+        erleichtert. Auch meine UI/UX-Ideen fanden häufig Anklang und wurden ins
+        Produkt übernommen. Neben den fachlichen Kompetenzen habe ich bei
+        POLYPOINT AG auch persönlich stark profitiert: Durch wöchentliche
+        Technologie-Präsentationen konnte ich meine Zurückhaltung ablegen,
+        Selbstvertrauen gewinnen und als Persönlichkeit wachsen.
+
+        <br /><br />
+        Einsatzdauer: August 2021 - August 2023
       </div>
-    </ng-template>
-  </ngb-carousel>
-  <div class="right"><p [innerHTML]="displayText()"></p></div>
+    </div>
+
+    <!-- Card 4 -->
+
+  </div>
 </div>
